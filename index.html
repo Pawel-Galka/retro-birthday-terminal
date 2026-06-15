@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNLOCK // ACTIVATION TERMINAL</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="screen active" id="screen-boot">
+    <div id="boot-terminal"></div>
+</div>
+
+<div id="progress-bar">
+    <div class="progress-label">// ACTIVATION CODE //</div>
+    <div class="code-display" id="code-display"></div>
+</div>
+
+<div class="game-header" id="game-header" style="display:none">
+    <div>
+        <div class="game-title-badge" id="header-badge" style="border-color:#4a5068;color:#4a5068">GAME 1</div>
+    </div>
+    <div style="text-align:center">
+        <div style="font-size:10px;letter-spacing:2px;margin-bottom:2px">SCORE</div>
+        <div class="hud-value" id="hud-score">0</div>
+    </div>
+    <div style="text-align:right">
+        <div style="font-size:10px;letter-spacing:2px;margin-bottom:2px" id="hud-label">TIME</div>
+        <div class="hud-value" id="hud-timer">0</div>
+    </div>
+</div>
+
+<canvas id="game-canvas"></canvas>
+
+<div id="memory-container">
+    <div id="memory-status">Dobierz wszystkie pary!</div>
+    <div id="memory-grid"></div>
+</div>
+
+<div class="screen" id="screen-welcome">
+    <div class="welcome-glitch">UNLOCK // TERMINAL</div>
+    <div class="welcome-sub">
+        Wszystkiego najlepszego! 🎂<br>
+        Ukończ minigry, aby zdobyć swój prezent.<br><br>
+        <span style="color:var(--dim);font-size:12px">4 minigry · 15 znaków kodu</span>
+    </div>
+    <div class="welcome-games">
+        <div class="game-badge">01 // CLICKER</div>
+        <div class="game-badge">02 // DODGER</div>
+        <div class="game-badge">03 // MEMORY</div>
+        <div class="game-badge">04 // FLAPPY</div>
+    </div>
+    <button class="btn" onclick="startGame()">[ START ]</button>
+</div>
+
+<div class="screen" id="screen-transition">
+    <div class="transition-icon">✓</div>
+    <div class="transition-title">LEVEL CLEAR</div>
+    <div class="transition-sub" id="trans-sub">Odblokowano znaki:</div>
+    <div class="revealed-chars" id="trans-chars"></div>
+    <div id="trans-next-label" style="font-size:12px;letter-spacing:2px;color:var(--dim)">Następna gra:</div>
+    <div id="trans-next-name" style="font-size:16px;letter-spacing:3px;color:var(--cyan)"></div>
+    <button class="btn" id="trans-btn" onclick="nextGame()">DALEJ →</button>
+</div>
+
+<div class="screen" id="screen-gameover">
+    <div class="gameover-title">GAME OVER</div>
+    <div class="gameover-sub" id="gameover-sub">Spróbuj jeszcze raz</div>
+    <button class="btn magenta" id="retry-btn" onclick="retryGame()">[ RETRY ]</button>
+</div>
+
+<div class="screen" id="screen-win">
+    <canvas id="win-canvas"></canvas>
+    <div class="win-title">GRATULACJE!</div>
+    <div class="win-sub">Kod aktywacyjny odblokowany. Miłego grania! 🎮</div>
+    <div class="win-code-box">
+        <div class="win-code-label">// Twój kod aktywacyjny //</div>
+        <div class="win-code-value" id="win-code-display">DECRYPTING...</div>
+    </div>
+    <button class="copy-btn" onclick="copyCode()">📋 SKOPIUJ KOD</button>
+    <div class="copy-feedback" id="copy-feedback"></div>
+</div>
+
+<script src="js/audio.js"></script>
+<script src="js/games/clicker.js"></script>
+<script src="js/games/dodger.js"></script>
+<script src="js/games/memory.js"></script>
+<script src="js/games/flappy.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
